@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gujun.mes201.dao.RoleMapper">
+
+    <select id="getById" resultType="role" parameterType="int">
+        select
+            rId,rName
+        from
+            role_tab
+        where
+            rId=#{rId}
+    </select>
+
+    <select id="getByName" resultType="role" parameterType="string">
+        select
+            rId,rName
+        from
+            role_tab
+        where
+            rName=#{rName}
+    </select>
+
+    <select id="getNames" resultType="string" parameterType="int">
+        select
+            rName
+        from
+            role_tab
+        where
+            rId in
+            (
+              select
+                a.rId
+              from
+                user_role_tab as a
+              where
+                a.uId=#{uId}
+            )
+    </select>
+
+</mapper>

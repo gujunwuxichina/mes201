@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gujun.mes201.dao.SysPermissionMapper">
+
+    <select id="listByRid" parameterType="int" resultType="sysPermission">
+        select
+            pId, url, rId, permission
+        from
+            sys_permission
+        where
+            rId=#{rId}
+    </select>
+
+</mapper>
