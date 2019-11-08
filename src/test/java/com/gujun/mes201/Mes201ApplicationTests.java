@@ -39,7 +39,7 @@ public class Mes201ApplicationTests {
 
     @Test
     public void encodePwd(){
-        logger.info(passwordEncoder.encode("111111"));
+            logger.info(passwordEncoder.encode("123"));
     }
 
     @Test

@@ -11,7 +11,8 @@ spring:
     # mysql
     url: jdbc:mysql://127.0.0.1:3306/mes2.0?serverTimezone=UTC
     username: root
-    password: root
+#    password: root
+    password: gujun
     driver-class-name: com.mysql.cj.jdbc.Driver
     #配置初始化大小/最小/最大
     initial-size: 1
