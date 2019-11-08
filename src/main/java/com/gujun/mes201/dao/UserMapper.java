@@ -1,5 +1,6 @@
 package com.gujun.mes201.dao;
 
+import com.gujun.mes201.entity.PageData;
 import com.gujun.mes201.entity.SystemUser;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -17,8 +18,6 @@ public interface UserMapper {
 
     int getCount();
 
-    void deletePersistent(@Param("username") String username);
-
-    void deletePersistentByUsername(@Param("username") String username);
+    List<PageData> list(PageData pd);
 
 }

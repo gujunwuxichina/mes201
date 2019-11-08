@@ -34,33 +34,18 @@
             persistent_logins
     </select>
 
-    <delete id="deletePersistent" parameterType="string">
-        DELETE
-        a
-        FROM
-        persistent_logins as a,(
-        SELECT
-        top 1
-        last_used
-        FROM
-        persistent_logins
-        WHERE
-        username=#{username}
-        ORDER BY last_used DESC
---         LIMIT 0,1
-        ) as b
-        WHERE
-            a.last_used &lt; b.last_used
-        and
-            a.username=#{username}
-    </delete>
-
-    <delete id="deletePersistentByUsername" parameterType="string">
-        delete
+    <select id="list" resultType="pd" parameterType="pd">
+        select
+            a.uId,a.username,a.phone,c.rName as roleName
         from
-        persistent_logins
-        where
-            username=#{username}
-    </delete>
+            user_tab as a
+        left join user_role_tab as b on b.uId=a.uId
+        left join role_tab as c on c.rId=b.rId
+        <where>
+            <if test="username!=null and username!=''">
+                a.username like concat('%',#{username},'%')
+            </if>
+        </where>
+    </select>
 
 </mapper>

@@ -1,6 +1,7 @@
 package com.gujun.mes201.service;
 
 import com.gujun.mes201.dao.UserMapper;
+import com.gujun.mes201.entity.PageData;
 import com.gujun.mes201.entity.SystemUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,13 +35,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deletePersistent(String username) {
-        userMapper.deletePersistent(username);
-    }
-
-    @Override
-    public void deletePersistentByUsername(String username) {
-        userMapper.deletePersistentByUsername(username);
+    public List<PageData> list(PageData pd) {
+        return userMapper.list(pd);
     }
 
 }

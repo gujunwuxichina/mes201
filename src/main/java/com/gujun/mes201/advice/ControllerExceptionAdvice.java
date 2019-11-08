@@ -21,7 +21,7 @@ public class ControllerExceptionAdvice {
         ex.printStackTrace();
         logger.info(ex.getMessage());
         JSONObject jsonObject=new JSONObject();
-        jsonObject.put("result","error");
+        jsonObject.put("message","error");
         return jsonObject;
     }
 

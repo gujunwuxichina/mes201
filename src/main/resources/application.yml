@@ -67,5 +67,6 @@ jwt:
   secret: secret
   #token有效期2天
   expiration: 172800000
+#  expiration: 30000
   token: X-Token
 

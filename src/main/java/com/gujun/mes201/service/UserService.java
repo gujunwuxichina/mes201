@@ -1,5 +1,6 @@
 package com.gujun.mes201.service;
 
+import com.gujun.mes201.entity.PageData;
 import com.gujun.mes201.entity.SystemUser;
 
 import java.util.List;
@@ -14,8 +15,6 @@ public interface UserService {
 
     int getCount();
 
-    void deletePersistent(String username);
-
-    void deletePersistentByUsername(String username);
+    List<PageData> list(PageData pd);
 
 }
