@@ -1,9 +1,6 @@
 server:
   servlet:
     context-path:
-    session:
-      #session过期时间 单位 秒
-      timeout: 60
   port: 8091
 spring:
   application:
