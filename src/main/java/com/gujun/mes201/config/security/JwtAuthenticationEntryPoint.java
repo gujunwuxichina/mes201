@@ -1,5 +1,6 @@
 package com.gujun.mes201.config.security;
 
+import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.AuthenticationException;
@@ -19,7 +20,10 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
         logger.info(e.getMessage());
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"401");
+//        response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"401");
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("code",50014);
+        response.getWriter().write(jsonObject.toJSONString());
     }
 
 }
